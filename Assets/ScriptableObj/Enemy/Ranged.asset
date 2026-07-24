@@ -22,5 +22,5 @@ MonoBehaviour:
   scale: 0.7
   attackRange: 5
   attackCooldown: 2.5
-  projectilePrefab: {fileID: 7745524036899171140, guid: 03b25deabaad41e43bc5d8f367cc8ba8, type: 3}
+  projectilePrefab: {fileID: 4836246898066261932, guid: 740fe9e9768226b44b2531e46bd844eb, type: 3}
   projectileSpeed: 8

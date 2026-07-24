@@ -1259,6 +1259,9 @@ MonoBehaviour:
   - {fileID: 621108419}
   - {fileID: 1339459620}
   spawnDelay: 1
+  normalCount: 5
+  tankCount: 1
+  rangedCount: 2
 --- !u!4 &1298653836
 Transform:
   m_ObjectHideFlags: 0
