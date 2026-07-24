@@ -214,7 +214,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &256843580
 Transform:
   m_ObjectHideFlags: 0
@@ -247,12 +247,9 @@ MonoBehaviour:
   _cooldown: 0.6
   _leftSwingAngle: -75
   _rightSwingAngle: 75
-  _attackDistance: 2
   _attackAngle: 75
-  _attackDuration: 0.6
-  _hitLayerMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
+  _attackRadius: 1.1
+  _swingDuration: 0.6
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,25 +1,27 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class MeleeWeapon : Weapon
 {
-    [SerializeField] private float _leftSwingAngle = -90f;
-    [SerializeField] private float _rightSwingAngle = 90f;
-    [SerializeField] private float _attackDistance = 1.25f;
+    [SerializeField] private float _leftSwingAngle = -60f;
+    [SerializeField] private float _rightSwingAngle = 60f;
     [SerializeField, Range(0f, 360f)] private float _attackAngle = 180f;
-    [SerializeField] private float _attackDuration = 0.2f;
-    [SerializeField] private LayerMask _hitLayerMask = -1;
+
+    [SerializeField] private float _attackRadius = 2.5f;
+    [SerializeField] private float _swingDuration = 0.15f;
 
     private bool _isAttacking;
+    private Quaternion _defaultRotation;
+
+    private void Awake()
+    {
+        _defaultRotation = transform.localRotation;
+    }
 
     public override void Attack()
     {
-        if (!CanShoot)
-        {
-            return;
-        }
-
-        if (_isAttacking)
+        if (!CanShoot || _isAttacking)
         {
             return;
         }
@@ -35,14 +37,16 @@ public class MeleeWeapon : Weapon
         Quaternion leftRotation = Quaternion.Euler(0f, 0f, _leftSwingAngle);
         Quaternion rightRotation = Quaternion.Euler(0f, 0f, _rightSwingAngle);
 
-        float phaseDuration = Mathf.Max(0.01f, _attackDuration / 3f);
-        bool hasDealtDamage = false;
+        float swingDuration = Mathf.Max(0.01f, _swingDuration);
+        float phaseDuration = swingDuration / 3f;
+        var damagedTargets = new HashSet<IDamageable>();
 
         float elapsed = 0f;
         while (elapsed < phaseDuration)
         {
             float t = elapsed / phaseDuration;
             transform.localRotation = Quaternion.Slerp(startRotation, leftRotation, t);
+            DealDamage(damagedTargets);
             elapsed += Time.deltaTime;
             yield return null;
         }
@@ -54,13 +58,7 @@ public class MeleeWeapon : Weapon
         {
             float t = elapsed / phaseDuration;
             transform.localRotation = Quaternion.Slerp(leftRotation, rightRotation, t);
-
-            if (!hasDealtDamage && elapsed >= phaseDuration * 0.5f)
-            {
-                DealDamage();
-                hasDealtDamage = true;
-            }
-
+            DealDamage(damagedTargets);
             elapsed += Time.deltaTime;
             yield return null;
         }
@@ -71,29 +69,24 @@ public class MeleeWeapon : Weapon
         while (elapsed < phaseDuration)
         {
             float t = elapsed / phaseDuration;
-            transform.localRotation = Quaternion.Slerp(rightRotation, startRotation, t);
+            transform.localRotation = Quaternion.Slerp(rightRotation, _defaultRotation, t);
+            DealDamage(damagedTargets);
             elapsed += Time.deltaTime;
             yield return null;
         }
 
-        transform.localRotation = startRotation;
+        transform.localRotation = _defaultRotation;
         _isAttacking = false;
         ResetCooldown();
     }
 
-    private void DealDamage()
+    private void DealDamage(HashSet<IDamageable> damagedTargets)
     {
         Vector3 origin = transform.position;
-        Vector2 attackDirection = transform.parent != null
-            ? (Vector2)transform.parent.up
-            : (Vector2)transform.up;
+        Vector2 attackDirection = (Vector2)transform.up;
         float halfAttackAngle = _attackAngle * 0.5f;
 
-        Collider2D[] hits2D = Physics2D.OverlapCircleAll(origin, _attackDistance, _hitLayerMask);
-        Collider2D nearestHit = null;
-
-        IDamageable nearestDamageable = null;
-        float nearestDistanceSqr = float.PositiveInfinity;
+        Collider2D[] hits2D = Physics2D.OverlapCircleAll(origin, _attackRadius);
 
         foreach (Collider2D hit in hits2D)
         {
@@ -114,18 +107,13 @@ public class MeleeWeapon : Weapon
                 continue;
             }
 
-            float distanceSqr = (targetPoint - origin).sqrMagnitude;
-            if (distanceSqr < nearestDistanceSqr)
+            if (damagedTargets.Contains(damageable))
             {
-                nearestDistanceSqr = distanceSqr;
-                nearestHit = hit;
-                nearestDamageable = damageable;
+                continue;
             }
-        }
 
-        if (nearestHit != null)
-        {
-            nearestDamageable.TakeDamage(AttackDamage);
+            damageable.TakeDamage(AttackDamage);
+            damagedTargets.Add(damageable);
         }
     }
 
@@ -138,9 +126,9 @@ public class MeleeWeapon : Weapon
             return true;
         }
 
-        float angleToTarget = Vector2.SignedAngle(attackDirection.normalized, directionToTarget2D.normalized);
+        float angleToTarget = Vector2.Angle(attackDirection.normalized, directionToTarget2D.normalized);
 
-        return Mathf.Abs(angleToTarget) > halfAttackAngle;
+        return angleToTarget > halfAttackAngle;
     }
 
     private bool CanHit(Collider2D hit)
@@ -156,5 +144,22 @@ public class MeleeWeapon : Weapon
         }
 
         return true;
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, _attackRadius);
+
+        Vector3 origin = transform.position;
+        Vector3 direction = transform.up;
+
+        float halfAngle = _attackAngle * 0.5f;
+        Vector3 leftBoundary = Quaternion.Euler(0, 0, halfAngle) * direction;
+        Vector3 rightBoundary = Quaternion.Euler(0, 0, -halfAngle) * direction;
+
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawRay(origin, leftBoundary * _attackRadius);
+        Gizmos.DrawRay(origin, rightBoundary * _attackRadius);
     }
 }
