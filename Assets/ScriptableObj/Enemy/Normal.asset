@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e88ebceaf57f9b4ca758ef68b4797b4, type: 3}
+  m_Name: Normal
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyData
+  enemyName: dust bunny
+  enemyType: 0
+  maxHealth: 30
+  moveSpeed: 3
+  damage: 5
+  sprite: {fileID: -2413806693520163455, guid: 6c9563a38c600c443bb163b0bea0d0d3, type: 3}
+  color: {r: 1, g: 0, b: 0, a: 1}
+  scale: 0.8
+  attackRange: 1
+  attackCooldown: 1
+  projectilePrefab: {fileID: 0}
+  projectileSpeed: 8

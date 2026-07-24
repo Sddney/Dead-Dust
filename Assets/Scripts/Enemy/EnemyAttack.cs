@@ -1,0 +1,89 @@
+using UnityEngine;
+using UnityEngine.AI;
+
+public class EnemyAttack : MonoBehaviour
+{
+    private EnemyData data;
+    private NavMeshAgent agent;
+    private EnemyVision vision;
+
+    private float attackTimer;
+
+    public void Initialize(EnemyData enemyData)
+    {
+        data = enemyData;
+    }
+
+    private void Awake()
+    {
+        agent = GetComponent<NavMeshAgent>();
+    }
+
+    private void FixedUpdate()
+    {
+        if (attackTimer > 0)
+            attackTimer -= Time.fixedDeltaTime;
+    }
+
+    private void Update()
+    {
+        if (data.enemyType == EnemyType.Ranged)
+        {
+            HandleRangedAttack();
+        }
+    }
+
+    private void HandleRangedAttack()
+    {
+        vision = GetComponent<EnemyVision>();
+
+        float distance = Vector2.Distance(transform.position, vision.Player.position);
+
+        bool canAttack = distance <= data.attackRange && vision.CanSeePlayer;
+        //Debug.Log($"Can Attack: {canAttack}");
+
+        agent.isStopped = canAttack;
+
+        if (canAttack && attackTimer <= 0)
+        {
+            Shoot();
+            attackTimer = data.attackCooldown;
+        }
+    }
+
+    private void Shoot()
+    {
+        GameObject projectile = Instantiate(data.projectilePrefab,transform.position,Quaternion.identity);
+
+        Vector2 direction =(vision.Player.position - transform.position).normalized;
+
+        Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
+
+        if (rb != null)
+            rb.linearVelocity = direction * data.projectileSpeed;
+
+        Destroy(projectile, 3f);
+    }
+
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        if (data.enemyType == EnemyType.Ranged)
+            return;
+
+        if (!other.CompareTag("Player"))
+            return;
+
+        if (attackTimer > 0)
+            return;
+
+        PlayerHealthManagement playerHealth =
+            other.GetComponent<PlayerHealthManagement>();
+
+        if (playerHealth == null)
+            return;
+
+        playerHealth.Damage((int)data.damage);
+
+        attackTimer = data.attackCooldown;
+    }
+}
