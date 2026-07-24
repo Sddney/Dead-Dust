@@ -1,10 +1,14 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class WeaponController : MonoBehaviour
 {
     [SerializeField] private List<Weapon> _allWeapons;
+
+    [SerializeField] private Transform _weaponsTransform;
+    [SerializeField] private float _rotationSpeed = 5f;
 
     private Weapon _currentWeapon;
 
@@ -16,6 +20,35 @@ public class WeaponController : MonoBehaviour
         {
             _currentWeapon = _allWeapons.First();
             _currentWeapon.gameObject.SetActive(true);
+        }
+    }
+
+    private void Update()
+    {
+        _weaponsTransform.position = transform.position;
+
+        RotateTowardsMouse();
+    }
+
+    private void RotateTowardsMouse()
+    {
+        Vector2 mouseScreenPosition = Mouse.current.position.ReadValue();
+
+        Vector3 mouseWorldPosition = Camera.main.ScreenToWorldPoint(mouseScreenPosition);
+
+        Vector2 direction = mouseWorldPosition - _weaponsTransform.position;
+
+        float targetAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
+
+        Quaternion targetRotation = Quaternion.Euler(0f, 0f, targetAngle);
+
+        if (_rotationSpeed > 0f)
+        {
+            _weaponsTransform.rotation = Quaternion.Slerp(_weaponsTransform.rotation, targetRotation, _rotationSpeed * Time.deltaTime);
+        }
+        else
+        {
+            _weaponsTransform.rotation = targetRotation;
         }
     }
 

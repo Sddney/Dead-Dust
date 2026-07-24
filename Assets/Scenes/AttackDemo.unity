@@ -224,7 +224,7 @@ Transform:
   m_GameObject: {fileID: 256843579}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.59, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -972,7 +972,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1942445585}
-  - {fileID: 1651734904}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &876931240
@@ -1123,6 +1122,8 @@ MonoBehaviour:
   _allWeapons:
   - {fileID: 1522346823}
   - {fileID: 256843581}
+  _weaponsTransform: {fileID: 1651734904}
+  _rotationSpeed: 15
 --- !u!1 &1191887992
 GameObject:
   m_ObjectHideFlags: 0
@@ -1538,7 +1539,7 @@ Transform:
   m_GameObject: {fileID: 1522346821}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.59, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1563,7 +1564,7 @@ MonoBehaviour:
   _projectilePrefab: {fileID: 2812560207353588509, guid: c4e8af6592546954ca9928442142d14a, type: 3}
   _projectileSpawnPosition: {fileID: 1191887993}
   _projectileDistance: 5
-  _projectileSpeed: 50
+  _projectileSpeed: 100
 --- !u!1 &1651734903
 GameObject:
   m_ObjectHideFlags: 0
@@ -1588,14 +1589,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1651734903}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.15, y: 0.63, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 256843580}
   - {fileID: 1522346822}
-  m_Father: {fileID: 876931239}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1838252608
 GameObject:
@@ -1880,3 +1881,4 @@ SceneRoots:
   - {fileID: 581987052}
   - {fileID: 1493733665}
   - {fileID: 60549191}
+  - {fileID: 1651734904}
