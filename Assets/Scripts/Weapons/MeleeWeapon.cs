@@ -14,6 +14,11 @@ public class MeleeWeapon : Weapon
 
     public override void Attack()
     {
+        if (!CanShoot)
+        {
+            return;
+        }
+
         if (_isAttacking)
         {
             return;
@@ -73,6 +78,7 @@ public class MeleeWeapon : Weapon
 
         transform.localRotation = startRotation;
         _isAttacking = false;
+        ResetCooldown();
     }
 
     private void DealDamage()
