@@ -52,6 +52,12 @@ public class WeaponController : MonoBehaviour
         }
 
         _specialWeaponCooldown += Time.deltaTime;
+
+        if (_uiManager is not null)
+        {
+            _uiManager.UpdateShield(_specialWeaponCooldown, _specialWeapon.Cooldown);
+        }
+
         if (_specialWeaponCooldown >= _specialWeapon.Cooldown)
         {
             _canUseSpecialWeapon = true;
