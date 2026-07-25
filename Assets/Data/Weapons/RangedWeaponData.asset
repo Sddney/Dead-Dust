@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: RangedWeaponData
   m_EditorClassIdentifier: Assembly-CSharp::WeaponData
   <AttackDamage>k__BackingField: 15
-  <AttackDistance>k__BackingField: 3
+  <AttackDistance>k__BackingField: 6
   <Cooldown>k__BackingField: 0.3
   <Sound>k__BackingField: {fileID: 8300000, guid: 8e74cd3fcc86e8c469773882c4f805fc, type: 3}
