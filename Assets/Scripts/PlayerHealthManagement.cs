@@ -15,6 +15,8 @@ public class PlayerHealthManagement : MonoBehaviour
 
     public int CurrentHealth { get; private set; }
 
+    public event EventHandler PlayerDied;
+
     private void Awake()
     {
         audioManager = FindAnyObjectByType<AudioManager>();
@@ -78,6 +80,9 @@ public class PlayerHealthManagement : MonoBehaviour
 
         if (CurrentHealth <= 0)
         {
+            UIManager.ShowDeathUI();
+            gameObject.SetActive(false);
+            PlayerDied?.Invoke(this, EventArgs.Empty);
             Debug.Log("Player Died");
         }
     }

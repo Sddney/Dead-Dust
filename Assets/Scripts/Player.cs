@@ -9,6 +9,8 @@ public class Player : MonoBehaviour
     private PlayerHealthManagement _healthManagement;
     private WeaponController _weaponManager;
 
+    public PlayerHealthManagement PlayerHealthManagement => _healthManagement;
+
     private void Awake()
     {
         _weaponManager = GetComponent<WeaponController>();
