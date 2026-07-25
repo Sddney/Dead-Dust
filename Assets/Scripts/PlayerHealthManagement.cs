@@ -28,9 +28,4 @@ public class PlayerHealthManagement : MonoBehaviour
             Debug.Log("Player Died");
         }
     }
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        
-    }
 }

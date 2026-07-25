@@ -7,18 +7,37 @@ public class Projectile : MonoBehaviour
     private float _speed = 10;
     private float _distance = 5;
 
-    private int _damage = 0;
+    private float _damage = 0;
 
+    private Vector3 _initialPosition;
+    private Vector2 _currentVelocity;
+    private float _smoothTime = 0.05f;
     private Rigidbody2D _rigidbody;
 
     private void Awake()
     {
+        _initialPosition = transform.position;
         _rigidbody = GetComponent<Rigidbody2D>();
+    }
+
+    private void Update()
+    {
+        if (Vector3.Distance(_initialPosition, transform.position) <= _distance)
+        {
+            return;
+        }
+
+        DestroyProjectile();
     }
 
     private void FixedUpdate()
     {
-        _rigidbody.linearVelocity = transform.up * _speed * Time.deltaTime;
+        Vector2 targetVelocity = transform.up * _speed;
+        _rigidbody.linearVelocity = Vector2.SmoothDamp(
+            _rigidbody.linearVelocity,
+            targetVelocity,
+            ref _currentVelocity,
+            _smoothTime);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -26,11 +45,16 @@ public class Projectile : MonoBehaviour
         if (collision.transform.TryGetComponent(out IDamageable damageable))
         {
             damageable.TakeDamage(_damage);
-            Destroy(gameObject);
+            DestroyProjectile();
         }
     }
 
-    public void SetAttackDamage(int attackDamage)
+    private void DestroyProjectile()
+    {
+        Destroy(gameObject);
+    }
+
+    public void SetAttackDamage(float attackDamage)
     {
         if (attackDamage < 0)
         {

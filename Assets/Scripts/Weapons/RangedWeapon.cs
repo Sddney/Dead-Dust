@@ -5,8 +5,9 @@ public class RangedWeapon : Weapon
     [SerializeField] private Projectile _projectilePrefab;
     [SerializeField] private Transform _projectileSpawnPosition;
 
-    [SerializeField] private float _projectileDistance = 5f;
     [SerializeField] private float _projectileSpeed = 5f;
+    
+    private float ProjectileDistance => WeaponData.AttackDistance;
 
     private void Awake()
     {
@@ -28,9 +29,10 @@ public class RangedWeapon : Weapon
             return;
         }
 
+        AudioManager.PlaySound(WeaponData.Sound);
         var projectile = Instantiate(_projectilePrefab, _projectileSpawnPosition.position, _projectileSpawnPosition.rotation);
         projectile.SetAttackDamage(AttackDamage);
-        projectile.SetSpeedAndDistance(_projectileSpeed, _projectileDistance);
+        projectile.SetSpeedAndDistance(_projectileSpeed, ProjectileDistance);
 
         ResetCooldown();
     }
