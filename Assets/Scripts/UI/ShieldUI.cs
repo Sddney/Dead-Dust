@@ -5,8 +5,6 @@ public class ShieldUI : MonoBehaviour
 {
     [SerializeField] private Image _cooldownImage;
 
-    private bool _isAvailable = true;
-
     public void UpdateImage(float currentCooldown, float maxCooldown)
     {
         if (_cooldownImage is null)
@@ -18,7 +16,6 @@ public class ShieldUI : MonoBehaviour
         if (maxCooldown <= 0f || currentCooldown <= 0f)
         {
             _cooldownImage.fillAmount = 0f;
-            _isAvailable = true;
             return;
         }
 
@@ -27,11 +24,9 @@ public class ShieldUI : MonoBehaviour
         if (fillAmount <= 0f)
         {
             _cooldownImage.fillAmount = 0f;
-            _isAvailable = true;
             return;
         }
 
         _cooldownImage.fillAmount = fillAmount;
-        _isAvailable = false;
     }
 }
