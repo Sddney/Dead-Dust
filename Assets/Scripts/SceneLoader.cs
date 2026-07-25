@@ -10,13 +10,20 @@ public enum SceneName
 
 public class SceneLoader : MonoBehaviour
 {
+    public void LoadScene(int index)
+    {
+        SceneManager.LoadScene(index);
+    }
+
     public void LoadMenu()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene(SceneName.MainMenu.ToString());
     }
 
     public void LoadLevel()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene(SceneName.Level.ToString());
     }
 

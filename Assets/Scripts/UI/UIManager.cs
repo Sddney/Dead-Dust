@@ -15,8 +15,6 @@ public class UIManager : MonoBehaviour
     [SerializeField] private PointsManager pointsManager;
     [SerializeField] private TextMeshProUGUI pointsText;
 
-
-    [SerializeField] Image healthBar;
     [SerializeField] private Image _healthBar;
 
     public void SelectWeapon(int weaponIndex)
