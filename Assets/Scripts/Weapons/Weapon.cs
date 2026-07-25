@@ -11,6 +11,8 @@ public abstract class Weapon : MonoBehaviour
 
     public bool CanShoot => _canShoot;
     public float AttackDamage => WeaponData.AttackDamage;
+    
+    public float Cooldown => WeaponData.Cooldown;
 
     private void OnEnable()
     {

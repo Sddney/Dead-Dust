@@ -1,18 +1,28 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
 public class WeaponController : MonoBehaviour
 {
     [SerializeField] private List<Weapon> _allWeapons;
+    [SerializeField] private SpecialWeapon _specialWeapon;
     [SerializeField] private float _rotationSpeed = 5f;
 
     private Weapon _currentWeapon;
-    UIManager UIManager;
+    private UIManager _uiManager;
 
     private Animator _animator;
 
+    private float _specialWeaponCooldown;
+    private bool _specialWeaponInUse = false;
+    private bool _canUseSpecialWeapon = true;
+
     private bool HasWeapons => _allWeapons.Any();
+
+    public event EventHandler SpecialWeaponActivated;
+    public event EventHandler SpecialWeaponDiactivated;
 
     private void Awake()
     {
@@ -26,12 +36,41 @@ public class WeaponController : MonoBehaviour
             _currentWeapon = _allWeapons.First();
             _currentWeapon.gameObject.SetActive(true);
         }
-        UIManager ??= FindAnyObjectByType<UIManager>();
-        if (!UIManager) Debug.LogError("UI Manager is missing.");
+
+        _uiManager = FindAnyObjectByType<UIManager>();
+        if (!_uiManager)
+        {
+            Debug.LogWarning("UI Manager is missing.");
+        }
+    }
+
+    private void Update()
+    {
+        if (_canUseSpecialWeapon)
+        {
+            return;
+        }
+
+        _specialWeaponCooldown += Time.deltaTime;
+
+        if (_uiManager is not null)
+        {
+            _uiManager.UpdateShield(_specialWeaponCooldown, _specialWeapon.Cooldown);
+        }
+
+        if (_specialWeaponCooldown >= _specialWeapon.Cooldown)
+        {
+            _canUseSpecialWeapon = true;
+        }
     }
 
     public void Attack()
     {
+        if (_specialWeaponInUse)
+        {
+            return;
+        }
+
         if (_currentWeapon is null)
         {
             Debug.LogWarning("No weapon equipped.");
@@ -54,6 +93,37 @@ public class WeaponController : MonoBehaviour
         _currentWeapon.Attack();
     }
 
+    public void ActivateSpecialWeapon()
+    {
+        if (_specialWeaponInUse)
+        {
+            Debug.LogWarning("Special weapon is on cooldown.");
+            return;
+        }
+
+        if (!_canUseSpecialWeapon)
+        {
+            return;
+        }
+
+        StartCoroutine(UseSpecialWeapon());
+    }
+
+    private IEnumerator UseSpecialWeapon()
+    {
+        _specialWeaponInUse = true;
+        SpecialWeaponActivated?.Invoke(this, EventArgs.Empty);
+
+        yield return new WaitForSeconds(_specialWeapon.ShieldDuration);
+
+        SpecialWeaponDiactivated?.Invoke(this, EventArgs.Empty);
+        _specialWeapon.Attack();
+
+        _specialWeaponInUse = false;
+        _canUseSpecialWeapon = false;
+        _specialWeaponCooldown = 0;
+    }
+
     public void ChangeToNextWeapon()
     {
         if (!HasWeapons)
@@ -74,7 +144,6 @@ public class WeaponController : MonoBehaviour
         _currentWeapon.gameObject.SetActive(false);
         _currentWeapon = _allWeapons[index];
         _currentWeapon.gameObject.SetActive(true);
-
     }
 
     public void ChangeToPreviousWeapon()
@@ -119,6 +188,10 @@ public class WeaponController : MonoBehaviour
 
         _currentWeapon = _allWeapons[index];
         _currentWeapon.gameObject.SetActive(true);
-        UIManager.SelectWeapon(index);
+
+        if (_uiManager is not null)
+        {
+            _uiManager.SelectWeapon(index);
+        }
     }
 }
