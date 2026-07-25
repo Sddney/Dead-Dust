@@ -24,35 +24,37 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Vector2 targetVelocity = transform.TransformDirection(_moveInput * _speed);
+        Vector2 targetVelocity = _moveInput * _speed;
+
         _rigidbody.linearVelocity = Vector2.SmoothDamp(
             _rigidbody.linearVelocity,
             targetVelocity,
             ref _currentVelocity,
             _smoothTime);
 
-        RotateTowardsMovement();
+        RotateTowardsMouse();
     }
 
-    private void RotateTowardsMovement()
+    private void RotateTowardsMouse()
     {
         Vector2 mouseScreenPosition = Mouse.current.position.ReadValue();
-
         Vector3 mouseWorldPosition = Camera.main.ScreenToWorldPoint(mouseScreenPosition);
 
-        Vector2 direction = mouseWorldPosition - transform.position;
+        Vector2 direction = (mouseWorldPosition - transform.position).normalized;
+
+        if (direction == Vector2.zero) return;
 
         float targetAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
 
-        Quaternion targetRotation = Quaternion.Euler(0f, 0f, targetAngle);
-
         if (_rotationSpeed > 0f)
         {
-            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, _rotationSpeed * Time.deltaTime);
+            float currentAngle = _rigidbody.rotation;
+            float newAngle = Mathf.LerpAngle(currentAngle, targetAngle, _rotationSpeed * Time.fixedDeltaTime);
+            _rigidbody.MoveRotation(newAngle);
         }
         else
         {
-            transform.rotation = targetRotation;
+            _rigidbody.MoveRotation(targetAngle);
         }
     }
 }

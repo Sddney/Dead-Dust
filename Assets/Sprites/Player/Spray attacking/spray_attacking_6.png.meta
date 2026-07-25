@@ -1,19 +1,10 @@
 fileFormatVersion: 2
-guid: a7c26ce5ff22e2246b903cf452d7f6f9
+guid: cc86acb775650054b80406b596c1b97b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5020748227978214359
-    second: spray attacking 3_0
-  - first:
-      213: -1184907814130400396
-    second: spray attacking 3_1
-  - first:
-      213: -5764580410855841530
-    second: spray attacking 3_2
-  - first:
-      213: -628816223243438175
-    second: spray attacking 3_3
+      213: 8814347147436547905
+    second: spray attacking 6_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -60,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 512
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -109,73 +100,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: spray attacking 3_0
-      rect:
-        serializedVersion: 2
-        x: 151
-        y: 391
-        width: 10
-        height: 10
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 924cfa47618b25ab0800000000000000
-      internalID: -5020748227978214359
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spray attacking 3_1
-      rect:
-        serializedVersion: 2
-        x: 223
-        y: 391
-        width: 10
-        height: 10
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 4734c27fe9c5e8fe0800000000000000
-      internalID: -1184907814130400396
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spray attacking 3_2
-      rect:
-        serializedVersion: 2
-        x: 295
-        y: 391
-        width: 10
-        height: 10
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 60123cb88a81000b0800000000000000
-      internalID: -5764580410855841530
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spray attacking 3_3
+      name: spray attacking 6_0
       rect:
         serializedVersion: 2
         x: 159
@@ -190,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1a772900afef547f0800000000000000
-      internalID: -628816223243438175
+      spriteID: 14fdee9b70ad25a70800000000000000
+      internalID: 8814347147436547905
       vertices: []
       indices: 
       edges: []
@@ -210,10 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      spray attacking 3_0: -5020748227978214359
-      spray attacking 3_1: -1184907814130400396
-      spray attacking 3_2: -5764580410855841530
-      spray attacking 3_3: -628816223243438175
+      spray attacking 6_0: 8814347147436547905
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
