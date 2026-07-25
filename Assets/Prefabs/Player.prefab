@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 4788130522009250491}
   - component: {fileID: 3292561015509313129}
   - component: {fileID: 6642029668144834863}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 7866945982896999795, guid: 0000000000000000d000000000000000, type: 0}
@@ -284,7 +284,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4192749062300434685}
   - component: {fileID: 6355636626477720739}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: RangedWeapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -334,7 +334,7 @@ GameObject:
   - component: {fileID: 3311861250689019795}
   - component: {fileID: 5300555550092122533}
   - component: {fileID: 7988940994139131518}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: SpecialWeapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -438,7 +438,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8126249374014208518}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Weapons
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -472,7 +472,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7030447633367373298}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ProjectileSpawnPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -505,7 +505,7 @@ GameObject:
   - component: {fileID: 2952938082601226962}
   - component: {fileID: 1904774223471186975}
   - component: {fileID: 638330128309265365}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -618,7 +618,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3483091411878328937}
   - component: {fileID: 6484174135688593032}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: MeleeWeapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
