@@ -24,4 +24,8 @@ public class EnemyData : ScriptableObject
     [Header("Ranged Only")]
     public GameObject projectilePrefab;
     public float projectileSpeed = 8f;
+    public AudioClip soundShot;
+
+    [Header("Audio")] 
+    public AudioClip hurtSound;
 }
