@@ -10,7 +10,7 @@ public class EnemySpawner : MonoBehaviour
 
     [Header("Spawn")]
     [SerializeField] private Transform[] spawnPoints;
-    [SerializeField] private float spawnDelay = 1f;
+    [SerializeField] private float spawnDelay;
 
     [SerializeField] private int normalCount = 5;
     [SerializeField] private int tankCount = 1;
