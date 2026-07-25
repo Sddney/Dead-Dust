@@ -9,6 +9,7 @@ public class EnemyAttack : MonoBehaviour
 
     private float attackTimer;
     AudioManager AudioManager;
+    PointsManager PointsManager;
 
     public void Initialize(EnemyData enemyData)
     {
@@ -19,10 +20,11 @@ public class EnemyAttack : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
         AudioManager ??= FindAnyObjectByType<AudioManager>();
-        if (AudioManager is null)
-        {
-            Debug.LogError("AudioManager not found in the scene. Please make sure there is an AudioManager in the scene.");
-        }
+        if (AudioManager is null) Debug.LogError("AudioManager not found in the scene. Please make sure there is an AudioManager in the scene.");
+        
+        PointsManager ??= FindAnyObjectByType<PointsManager>();
+        if(PointsManager is null) Debug.LogError("PointsManager not found in the scene. Please make sure there is a PointsManager in the scene.");
+
     }
 
     private void FixedUpdate()

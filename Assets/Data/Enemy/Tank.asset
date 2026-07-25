@@ -17,8 +17,8 @@ MonoBehaviour:
   maxHealth: 80
   moveSpeed: 2
   damage: 20
-  sprite: {fileID: -2413806693520163455, guid: 6c9563a38c600c443bb163b0bea0d0d3, type: 3}
-  color: {r: 0, g: 0.3342303, b: 1, a: 1}
+  sprite: {fileID: -2723108898622364542, guid: d7a98dddad1392a4f977704ff61dc020, type: 3}
+  color: {r: 1, g: 1, b: 1, a: 1}
   scale: 1
   attackRange: 1
   attackCooldown: 2
