@@ -2277,10 +2277,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   _shieldUI: {fileID: 636443070}
+  _deathUI: {fileID: 0}
   _selection: {fileID: 1295894198}
   _weaponIcons:
   - {fileID: 601324633}
   - {fileID: 309966914}
+  selection: {fileID: 1295894198}
+  weaponIcons:
+  - {fileID: 601324633}
+  - {fileID: 309966914}
+  pointsManager: {fileID: 0}
+  pointsText: {fileID: 0}
   _healthBar: {fileID: 0}
 --- !u!4 &1144914267
 Transform:
