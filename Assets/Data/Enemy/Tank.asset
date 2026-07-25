@@ -24,3 +24,5 @@ MonoBehaviour:
   attackCooldown: 2
   projectilePrefab: {fileID: 0}
   projectileSpeed: 8
+  soundShot: {fileID: 0}
+  hurtSound: {fileID: 8300000, guid: 2a150d45d17d47f48bb4aa0f626feed2, type: 3}

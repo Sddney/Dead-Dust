@@ -11,6 +11,7 @@ public class WeaponController : MonoBehaviour
     [SerializeField] private float _rotationSpeed = 5f;
 
     private Weapon _currentWeapon;
+    UIManager UIManager;
 
     private bool HasWeapons => _allWeapons.Any();
 
@@ -21,6 +22,8 @@ public class WeaponController : MonoBehaviour
             _currentWeapon = _allWeapons.First();
             _currentWeapon.gameObject.SetActive(true);
         }
+        UIManager ??= FindAnyObjectByType<UIManager>();
+        if (!UIManager) Debug.LogError("UI Manager is missing.");
     }
 
     private void Update()
@@ -83,6 +86,7 @@ public class WeaponController : MonoBehaviour
         _currentWeapon.gameObject.SetActive(false);
         _currentWeapon = _allWeapons[index];
         _currentWeapon.gameObject.SetActive(true);
+
     }
 
     public void ChangeToPreviousWeapon()
@@ -125,9 +129,8 @@ public class WeaponController : MonoBehaviour
             _currentWeapon.gameObject.SetActive(false);
         }
 
-        Debug.Log(index);
-
         _currentWeapon = _allWeapons[index];
         _currentWeapon.gameObject.SetActive(true);
+        UIManager.SelectWeapon(index);
     }
 }
