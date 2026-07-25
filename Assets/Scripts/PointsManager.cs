@@ -21,4 +21,6 @@ public class PointsManager : MonoBehaviour
                 break;
         }
     }
+
+
 }
