@@ -19,7 +19,7 @@ MonoBehaviour:
   damage: 5
   sprite: {fileID: 1349508955120780010, guid: c630580a132e4074eacf1440cde75711, type: 3}
   color: {r: 1, g: 1, b: 1, a: 1}
-  scale: 1.2
+  scale: 1.5
   attackRange: 1
   attackCooldown: 1
   projectilePrefab: {fileID: 0}
