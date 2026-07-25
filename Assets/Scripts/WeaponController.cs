@@ -1,19 +1,23 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class WeaponController : MonoBehaviour
 {
     [SerializeField] private List<Weapon> _allWeapons;
-
-    [SerializeField] private Transform _weaponsTransform;
     [SerializeField] private float _rotationSpeed = 5f;
 
     private Weapon _currentWeapon;
     UIManager UIManager;
 
+    private Animator _animator;
+
     private bool HasWeapons => _allWeapons.Any();
+
+    private void Awake()
+    {
+        _animator = GetComponentInChildren<Animator>();
+    }
 
     private void Start()
     {
@@ -26,41 +30,25 @@ public class WeaponController : MonoBehaviour
         if (!UIManager) Debug.LogError("UI Manager is missing.");
     }
 
-    private void Update()
-    {
-        _weaponsTransform.position = transform.position;
-
-        RotateTowardsMouse();
-    }
-
-    private void RotateTowardsMouse()
-    {
-        Vector2 mouseScreenPosition = Mouse.current.position.ReadValue();
-
-        Vector3 mouseWorldPosition = Camera.main.ScreenToWorldPoint(mouseScreenPosition);
-
-        Vector2 direction = mouseWorldPosition - _weaponsTransform.position;
-
-        float targetAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
-
-        Quaternion targetRotation = Quaternion.Euler(0f, 0f, targetAngle);
-
-        if (_rotationSpeed > 0f)
-        {
-            _weaponsTransform.rotation = Quaternion.Slerp(_weaponsTransform.rotation, targetRotation, _rotationSpeed * Time.deltaTime);
-        }
-        else
-        {
-            _weaponsTransform.rotation = targetRotation;
-        }
-    }
-
     public void Attack()
     {
         if (_currentWeapon is null)
         {
             Debug.LogWarning("No weapon equipped.");
             return;
+        }
+
+        if (_currentWeapon.CanShoot)
+        {
+            if (_currentWeapon is MeleeWeapon melee)
+            {
+                _animator.SetTrigger("Attack1");
+            }
+
+            if (_currentWeapon is RangedWeapon ranged)
+            {
+                _animator.SetTrigger("Attack2");
+            }
         }
 
         _currentWeapon.Attack();

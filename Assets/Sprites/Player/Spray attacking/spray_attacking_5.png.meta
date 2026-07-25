@@ -1,0 +1,455 @@
+fileFormatVersion: 2
+guid: 509fef0727d1d004389dc6f6bcd58abc
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5315085504619382290
+    second: spray attacking 5_0
+  - first:
+      213: 2167754294044337973
+    second: spray attacking 5_1
+  - first:
+      213: -8882819976866139430
+    second: spray attacking 5_2
+  - first:
+      213: 1981822623563549424
+    second: spray attacking 5_3
+  - first:
+      213: -7873964868476452961
+    second: spray attacking 5_4
+  - first:
+      213: -8499050426071257230
+    second: spray attacking 5_5
+  - first:
+      213: -4709626345686159742
+    second: spray attacking 5_6
+  - first:
+      213: -4831873482214009523
+    second: spray attacking 5_7
+  - first:
+      213: -3248556385911194226
+    second: spray attacking 5_8
+  - first:
+      213: 1863398698867268878
+    second: spray attacking 5_9
+  - first:
+      213: 3077754753031964228
+    second: spray attacking 5_10
+  - first:
+      213: 6020431724058865508
+    second: spray attacking 5_11
+  - first:
+      213: -8954639778841362450
+    second: spray attacking 5_12
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 512
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: spray attacking 5_0
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 455
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee97552e4e50d36b0800000000000000
+      internalID: -5315085504619382290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spray attacking 5_1
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 455
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53727d09b09651e10800000000000000
+      internalID: 2167754294044337973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spray attacking 5_2
+      rect:
+        serializedVersion: 2
+        x: 335
+        y: 455
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad276235b42e9b480800000000000000
+      internalID: -8882819976866139430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spray attacking 5_3
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 431
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0fa865d0d29d08b10800000000000000
+      internalID: 1981822623563549424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spray attacking 5_4
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 431
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9f3e809bae0ab290800000000000000
+      internalID: -7873964868476452961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spray attacking 5_5
+      rect:
+        serializedVersion: 2
+        x: 311
+        y: 431
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 27fe3e9daae4d0a80800000000000000
+      internalID: -8499050426071257230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spray attacking 5_6
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 407
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28e2e809acb04aeb0800000000000000
+      internalID: -4709626345686159742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spray attacking 5_7
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 407
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d4511051bacb1fcb0800000000000000
+      internalID: -4831873482214009523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spray attacking 5_8
+      rect:
+        serializedVersion: 2
+        x: 287
+        y: 407
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e8dbfe8bd2fcae2d0800000000000000
+      internalID: -3248556385911194226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spray attacking 5_9
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 383
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e0d98e07e3f1cd910800000000000000
+      internalID: 1863398698867268878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spray attacking 5_10
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 383
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4468d3824a166ba20800000000000000
+      internalID: 3077754753031964228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spray attacking 5_11
+      rect:
+        serializedVersion: 2
+        x: 263
+        y: 383
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46f650361cedc8350800000000000000
+      internalID: 6020431724058865508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spray attacking 5_12
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 135
+        width: 202
+        height: 242
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eeff39a909abab380800000000000000
+      internalID: -8954639778841362450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      spray attacking 5_0: -5315085504619382290
+      spray attacking 5_1: 2167754294044337973
+      spray attacking 5_10: 3077754753031964228
+      spray attacking 5_11: 6020431724058865508
+      spray attacking 5_12: -8954639778841362450
+      spray attacking 5_2: -8882819976866139430
+      spray attacking 5_3: 1981822623563549424
+      spray attacking 5_4: -7873964868476452961
+      spray attacking 5_5: -8499050426071257230
+      spray attacking 5_6: -4709626345686159742
+      spray attacking 5_7: -4831873482214009523
+      spray attacking 5_8: -3248556385911194226
+      spray attacking 5_9: 1863398698867268878
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

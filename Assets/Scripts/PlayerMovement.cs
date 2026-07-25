@@ -4,42 +4,57 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private float speed = 5f;
-    [SerializeField] private float smoothTime = 0.05f;
+    [SerializeField] private float _speed = 5f;
+    [SerializeField] private float _smoothTime = 0.05f;
+    [SerializeField] private float _rotationSpeed;
 
-    private Rigidbody2D rb;
-    private Vector2 moveInput;
-    private Vector2 currentVelocity;
+    private Rigidbody2D _rigidbody;
+    private Vector2 _moveInput;
+    private Vector2 _currentVelocity;
 
     private void Awake()
     {
-        rb = GetComponent<Rigidbody2D>();
+        _rigidbody = GetComponent<Rigidbody2D>();
     }
 
     public void OnMove(InputAction.CallbackContext context)
     {
-        moveInput = context.ReadValue<Vector2>();
+        _moveInput = context.ReadValue<Vector2>();
     }
 
     private void FixedUpdate()
     {
-        Vector2 targetVelocity = moveInput * speed;
-        rb.linearVelocity = Vector2.SmoothDamp(
-            rb.linearVelocity,
-            targetVelocity,
-            ref currentVelocity,
-            smoothTime);
+        Vector2 targetVelocity = _moveInput * _speed;
 
-        RotateTowardsMovement();
+        _rigidbody.linearVelocity = Vector2.SmoothDamp(
+            _rigidbody.linearVelocity,
+            targetVelocity,
+            ref _currentVelocity,
+            _smoothTime);
+
+        RotateTowardsMouse();
     }
 
-    private void RotateTowardsMovement()
+    private void RotateTowardsMouse()
     {
-        
-        if (moveInput.sqrMagnitude < 0.01f)
-            return;
+        Vector2 mouseScreenPosition = Mouse.current.position.ReadValue();
+        Vector3 mouseWorldPosition = Camera.main.ScreenToWorldPoint(mouseScreenPosition);
 
-        float angle = Mathf.Atan2(moveInput.y, moveInput.x) * Mathf.Rad2Deg;
-        rb.rotation = angle - 90f; 
+        Vector2 direction = (mouseWorldPosition - transform.position).normalized;
+
+        if (direction == Vector2.zero) return;
+
+        float targetAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
+
+        if (_rotationSpeed > 0f)
+        {
+            float currentAngle = _rigidbody.rotation;
+            float newAngle = Mathf.LerpAngle(currentAngle, targetAngle, _rotationSpeed * Time.fixedDeltaTime);
+            _rigidbody.MoveRotation(newAngle);
+        }
+        else
+        {
+            _rigidbody.MoveRotation(targetAngle);
+        }
     }
 }
