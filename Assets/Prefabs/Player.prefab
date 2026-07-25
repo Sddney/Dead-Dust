@@ -272,8 +272,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   startingHealth: 200
-  playerHurtSound: {fileID: 0}
-  playerHealSound: {fileID: 0}
+  playerHurtSound: {fileID: 8300000, guid: e1273755bb981934ea947d6d2089ac31, type: 3}
+  playerHealSound: {fileID: 8300000, guid: ed194520199a4ce45b291ab8bcb91366, type: 3}
 --- !u!1 &1171576768075222350
 GameObject:
   m_ObjectHideFlags: 0
