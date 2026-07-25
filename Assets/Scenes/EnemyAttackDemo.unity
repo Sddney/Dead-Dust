@@ -456,8 +456,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe178fcc319424b458cdf27ec154d156, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MeleeWeapon
-  _attackDamage: 5
-  _cooldown: 0.6
+  WeaponData: {fileID: 11400000, guid: cd24c8c7461cce84ea6e354c5089d95e, type: 2}
   _leftSwingAngle: -75
   _rightSwingAngle: 75
   _attackAngle: 75
@@ -1635,7 +1634,7 @@ MonoBehaviour:
   - {fileID: 316824876}
   - {fileID: 621108419}
   - {fileID: 1339459620}
-  spawnDelay: 1
+  spawnDelay: 3
   normalCount: 5
   tankCount: 1
   rangedCount: 2
@@ -1762,12 +1761,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01c0b838dbd0e6d489e10187316559ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RangedWeapon
-  _attackDamage: 5
-  _cooldown: 0.3
+  WeaponData: {fileID: 11400000, guid: a20740d2a62a45d408bbdbc443504f6a, type: 2}
   _projectilePrefab: {fileID: 2812560207353588509, guid: c4e8af6592546954ca9928442142d14a, type: 3}
   _projectileSpawnPosition: {fileID: 696818203}
-  _projectileDistance: 5
-  _projectileSpeed: 100
+  _projectileSpeed: 10
 --- !u!1 &1688590647
 GameObject:
   m_ObjectHideFlags: 0

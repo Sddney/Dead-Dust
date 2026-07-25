@@ -31,6 +31,8 @@ public class MeleeWeapon : Weapon
 
     private IEnumerator AttackRoutine()
     {
+        AudioManager.PlaySound(WeaponData.Sound);
+        
         _isAttacking = true;
 
         Quaternion startRotation = transform.localRotation;
