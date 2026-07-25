@@ -22,7 +22,7 @@ public class WeaponController : MonoBehaviour
             _currentWeapon = _allWeapons.First();
             _currentWeapon.gameObject.SetActive(true);
         }
-        UIManager = FindObjectOfType<UIManager>();
+        UIManager ??= FindAnyObjectByType<UIManager>();
         if (!UIManager) Debug.LogError("UI Manager is missing.");
     }
 
