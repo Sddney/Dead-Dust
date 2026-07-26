@@ -106,6 +106,7 @@ public class WeaponController : MonoBehaviour
             return;
         }
 
+        _uiManager.DiactivateShield();
         StartCoroutine(UseSpecialWeapon());
     }
 
@@ -113,13 +114,16 @@ public class WeaponController : MonoBehaviour
     {
         _specialWeaponInUse = true;
         SpecialWeaponActivated?.Invoke(this, EventArgs.Empty);
-
+        _animator.SetBool("HasShield", true);
         yield return new WaitForSeconds(_specialWeapon.ShieldDuration);
 
-        SpecialWeaponDiactivated?.Invoke(this, EventArgs.Empty);
+        _animator.SetBool("HasShield", false);
         _specialWeapon.Attack();
 
+        yield return new WaitForSeconds(_specialWeapon.BlanketActiveDuration);
+
         _specialWeaponInUse = false;
+        SpecialWeaponDiactivated?.Invoke(this, EventArgs.Empty);
         _canUseSpecialWeapon = false;
         _specialWeaponCooldown = 0;
     }

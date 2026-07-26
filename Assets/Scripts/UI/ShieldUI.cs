@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -28,5 +29,10 @@ public class ShieldUI : MonoBehaviour
         }
 
         _cooldownImage.fillAmount = fillAmount;
+    }
+
+    public void Diactivate()
+    {
+        _cooldownImage.fillAmount = 1f;
     }
 }

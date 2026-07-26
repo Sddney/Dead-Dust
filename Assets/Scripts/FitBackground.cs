@@ -3,7 +3,7 @@ using UnityEngine;
 [RequireComponent(typeof(SpriteRenderer))]
 public class FitBackground : MonoBehaviour
 {
-    void Start()
+    private void Start()
     {
         Camera cam = Camera.main;
         SpriteRenderer sr = GetComponent<SpriteRenderer>();

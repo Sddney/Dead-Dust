@@ -37,7 +37,7 @@ public class MenuUI : MonoBehaviour
     {
         _audioManager.PlaySound(_audioClip);
         yield return new WaitForSeconds(.5f);
-        _sceneLoader.LoadScene(2);
+        _sceneLoader.LoadLevel();
     }
 
     private void HandleExitButtonClicked()
