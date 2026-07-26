@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SpecialWeaponData
   m_EditorClassIdentifier: Assembly-CSharp::WeaponData
   <AttackDamage>k__BackingField: 100
-  <AttackDistance>k__BackingField: 5
+  <AttackDistance>k__BackingField: 8
   <KnockbackForce>k__BackingField: 10
   <Cooldown>k__BackingField: 12
   <Sound>k__BackingField: {fileID: 8300000, guid: 8e74cd3fcc86e8c469773882c4f805fc, type: 3}
