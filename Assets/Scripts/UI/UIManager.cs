@@ -7,6 +7,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject _mainUI;
     [SerializeField] private ShieldUI _shieldUI;
     [SerializeField] private DeathUI _deathUI;
+    [SerializeField] DashUI _dashUI;
     [SerializeField] private WinUI _winUI;
     [SerializeField] private GameObject[] _weaponsSelections;
 
@@ -58,6 +59,11 @@ public class UIManager : MonoBehaviour
     public void UpdateShield(float currentCooldown, float maxCooldown)
     {
         _shieldUI.UpdateImage(currentCooldown, maxCooldown);
+    }
+
+    public void DashAnimation()
+    {
+        _dashUI.StartAnim();
     }
 
     public void DiactivateShield()
