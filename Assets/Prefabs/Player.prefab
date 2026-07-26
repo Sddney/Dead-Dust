@@ -164,19 +164,7 @@ MonoBehaviour:
     m_ActionId: f4ed510f-0e36-4eab-81b3-8441f05d1cc2
     m_ActionName: 'Player/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]'
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3292561015509313129}
-        m_TargetAssemblyTypeName: Player, Assembly-CSharp
-        m_MethodName: OnAttack
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_ActionId: 1e44bb17-c37e-414e-85a2-cfeb19b95a39
     m_ActionName: 'Player/Attack[/Mouse/leftButton]'
   - m_PersistentCalls:
