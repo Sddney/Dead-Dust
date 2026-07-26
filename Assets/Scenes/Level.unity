@@ -6074,8 +6074,6 @@ RectTransform:
   m_AnchorMax: {x: 0.5, y: 0}
   m_AnchoredPosition: {x: 1.8115, y: -45.44}
   m_SizeDelta: {x: 116.377, y: 25}
-  m_AnchoredPosition: {x: 0, y: -26.6}
-  m_SizeDelta: {x: 136.9192, y: 25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1076904382
 MonoBehaviour:
@@ -7773,7 +7771,7 @@ MonoBehaviour:
   - {fileID: 316824876}
   - {fileID: 621108419}
   - {fileID: 1339459620}
-  spawnDelay: 3
+  spawnDelay: 2
   normalCount: 0
   tankCount: 0
   rangedCount: 0

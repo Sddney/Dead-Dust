@@ -30,9 +30,9 @@ public class EnemySpawner : MonoBehaviour
     {
         List<EnemyController> enemiesToSpawn = new List<EnemyController>();
 
-        normalCount = Random.Range(5, 15);
-        tankCount = Random.Range(1, 8);
-        rangedCount = Random.Range(5, 15);
+        normalCount = Random.Range(15, 25);
+        tankCount = Random.Range(10, 15);
+        rangedCount = Random.Range(15, 25);
 
         TotalEnemies = normalCount + tankCount + rangedCount;
 

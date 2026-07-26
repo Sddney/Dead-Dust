@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyData
   enemyName: dust bunny
   enemyType: 0
-  maxHealth: 30
+  maxHealth: 50
   moveSpeed: 3
   damage: 5
   sprite: {fileID: 1349508955120780010, guid: c630580a132e4074eacf1440cde75711, type: 3}
