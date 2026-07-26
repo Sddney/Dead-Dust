@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -42,6 +43,11 @@ public class UIManager : MonoBehaviour
     public void UpdateShield(float currentCooldown, float maxCooldown)
     {
         _shieldUI.UpdateImage(currentCooldown, maxCooldown);
+    }
+
+    public void DiactivateShield()
+    {
+        _shieldUI.Diactivate();
     }
 
     public void ShowDeathUI()
