@@ -10,6 +10,8 @@ public class DamageVFX : MonoBehaviour
 
     private Coroutine flashRoutine;
 
+    [SerializeField] private GameObject enemyDamageParticles;
+
 
     public void PlayPlayerDamage(SpriteRenderer spriteRenderer)
     {
@@ -36,4 +38,12 @@ public class DamageVFX : MonoBehaviour
             yield return new WaitForSeconds(flashDuration);
         }
     }
+
+    public void EnemyDamageVFX(Transform enemyTransform)
+    {
+        GameObject particles = Instantiate(enemyDamageParticles, enemyTransform.position, Quaternion.identity);
+        Destroy(particles, 0.7f);
+
+    }
+
 }

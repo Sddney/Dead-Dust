@@ -11,6 +11,8 @@ public class EnemyHealth : MonoBehaviour, IDamageable
 
     PointsManager PointsManager;
 
+    VFXManager VFXManager;
+
 
     void Start()
     {
@@ -19,6 +21,9 @@ public class EnemyHealth : MonoBehaviour, IDamageable
 
         PointsManager ??= FindAnyObjectByType<PointsManager>();
         if(PointsManager is null) Debug.LogError("PointsManager not found in the scene. Please make sure there is a PointsManager in the scene.");
+
+        VFXManager ??= FindAnyObjectByType<VFXManager>();
+        if (VFXManager is null) Debug.LogError("VFXManager not found in the scene. Please make sure there is a VFXManager in the scene.");
         
     }
 
@@ -32,14 +37,17 @@ public class EnemyHealth : MonoBehaviour, IDamageable
     public void TakeDamage(float damage)
     {
         AudioManager.PlaySound(hurtSound);
+        VFXManager.EnemyDamagePlay(transform);
         health -= damage;
 
-        if (health <= 0)
-            Die();
+        if (health <= 0) Die();
+        else FightTextManager.Instance.ShowHit(transform.position + Vector3.up);
     }
 
     private void Die()
     {
+        FightTextManager.Instance.ShowKill(transform.position + Vector3.up);
+
         PointsManager.AddKilled(enemyData.enemyType);
         Destroy(gameObject);
     }

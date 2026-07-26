@@ -17,5 +17,11 @@ public class VFXManager : MonoBehaviour
         damageVFX.PlayPlayerDamage(player.GetComponentInChildren<SpriteRenderer>());
         
     }
+
+    public void EnemyDamagePlay(Transform enemyTransform)
+    {
+        Debug.Log("ENEMY HIT");
+        damageVFX.EnemyDamageVFX(enemyTransform);
+    }
     
 }
