@@ -1,46 +1,58 @@
 using UnityEngine;
 using UnityEngine.AI;
 
+[RequireComponent(typeof(NavMeshAgent))]
 public class EnemyMovement : MonoBehaviour
 {
-
     private Transform playerTransform;
-    private NavMeshAgent navAgent;
+    private NavMeshAgent navMeshAgent;
+
+    private bool canMove = true;
 
     public void Initialize(EnemyData data)
     {
-        navAgent = GetComponent<NavMeshAgent>();
-
-        navAgent.speed = data.moveSpeed;
+        navMeshAgent ??= GetComponent<NavMeshAgent>();
+        navMeshAgent.speed = data.moveSpeed;
     }
 
-    void Start()
+    private void Start()
     {
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
-        navAgent = GetComponent<NavMeshAgent>();
-        navAgent.updateRotation = false;
-        navAgent.updateUpAxis = false;
+
+        navMeshAgent ??= GetComponent<NavMeshAgent>();
+        navMeshAgent.updateRotation = false;
+        navMeshAgent.updateUpAxis = false;
     }
 
-    void Update()
+    private void Update()
     {
-
-        navAgent.SetDestination(playerTransform.position);
-        RotateTowardsVelocity();
-
-    }
-
-      private void RotateTowardsVelocity()
-    {
-        
-        if (navAgent.velocity.sqrMagnitude < 0.01f)
+        if (playerTransform is null || !canMove)
+        {
             return;
+        }
+
+        navMeshAgent.SetDestination(playerTransform.position);
+        RotateTowardsVelocity();
+    }
+
+    private void RotateTowardsVelocity()
+    {
+        if (navMeshAgent.velocity.sqrMagnitude < 0.01f)
+        {
+            return;
+        }
 
         float angle = Mathf.Atan2(
-            navAgent.velocity.y,
-            navAgent.velocity.x) * Mathf.Rad2Deg;
+            navMeshAgent.velocity.y,
+            navMeshAgent.velocity.x) * Mathf.Rad2Deg;
 
         transform.rotation = Quaternion.Euler(0, 0, angle - 90f);
     }
 
+    public void DisableMovement()
+    {
+        canMove = false;
+        navMeshAgent.isStopped = true;
+        navMeshAgent.ResetPath();
+    }
 }
