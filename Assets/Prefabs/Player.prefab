@@ -246,6 +246,7 @@ MonoBehaviour:
   - {fileID: 6355636626477720739}
   _specialWeapon: {fileID: 7988940994139131518}
   _rotationSpeed: 12.2
+  _blanketClip: {fileID: 8300000, guid: 3559704c3f1c52b4ba812bbe32e53a08, type: 3}
 --- !u!114 &3292561015509313129
 MonoBehaviour:
   m_ObjectHideFlags: 0

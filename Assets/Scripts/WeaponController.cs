@@ -9,8 +9,10 @@ public class WeaponController : MonoBehaviour
     [SerializeField] private List<Weapon> _allWeapons;
     [SerializeField] private SpecialWeapon _specialWeapon;
     [SerializeField] private float _rotationSpeed = 5f;
+    [SerializeField] private AudioClip _blanketClip;
 
     private Weapon _currentWeapon;
+    private AudioManager _audioManager;
     private UIManager _uiManager;
 
     private Animator _animator;
@@ -27,6 +29,7 @@ public class WeaponController : MonoBehaviour
     private void Awake()
     {
         _animator = GetComponentInChildren<Animator>();
+        _audioManager = FindAnyObjectByType<AudioManager>();
     }
 
     private void Start()
@@ -115,6 +118,7 @@ public class WeaponController : MonoBehaviour
         _specialWeaponInUse = true;
         SpecialWeaponActivated?.Invoke(this, EventArgs.Empty);
         _animator.SetBool("HasShield", true);
+        _audioManager.PlaySound(_blanketClip);
         yield return new WaitForSeconds(_specialWeapon.ShieldDuration);
 
         _animator.SetBool("HasShield", false);

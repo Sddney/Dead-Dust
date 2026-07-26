@@ -15,6 +15,8 @@ public class PlayerHealthManagement : MonoBehaviour
 
     public int CurrentHealth { get; private set; }
 
+    public bool IsFullHealth => CurrentHealth == _startingHealth;
+
     public event EventHandler PlayerDied;
 
     private void Awake()

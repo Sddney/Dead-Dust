@@ -16,4 +16,4 @@ MonoBehaviour:
   <AttackDistance>k__BackingField: 8
   <KnockbackForce>k__BackingField: 10
   <Cooldown>k__BackingField: 12
-  <Sound>k__BackingField: {fileID: 8300000, guid: 8e74cd3fcc86e8c469773882c4f805fc, type: 3}
+  <Sound>k__BackingField: {fileID: 8300000, guid: 3559704c3f1c52b4ba812bbe32e53a08, type: 3}

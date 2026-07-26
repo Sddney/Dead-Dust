@@ -1935,7 +1935,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 43d8dc98c18e52343a98956666bea927, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.5
+  m_Volume: 0.25
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -2272,7 +2272,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.76470596, g: 0.76470596, b: 0.76470596, a: 1}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -4616,6 +4616,7 @@ MonoBehaviour:
   - {fileID: 1534612624}
   _specialWeapon: {fileID: 0}
   _rotationSpeed: 15
+  _blanketClip: {fileID: 0}
 --- !u!114 &876931245
 MonoBehaviour:
   m_ObjectHideFlags: 0

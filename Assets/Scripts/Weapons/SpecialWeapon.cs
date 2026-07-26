@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Threading.Tasks;
 using UnityEngine;
 
 public class SpecialWeapon : Weapon
@@ -22,6 +21,7 @@ public class SpecialWeapon : Weapon
         var blanket = Instantiate(_blanket, transform.position, transform.rotation);
         blanket.transform.localScale = size;
 
+        AudioManager.PlaySound(WeaponData.Sound);
         yield return new WaitForSeconds(_blanketActiveDuration);
 
         Collider2D[] colliders = Physics2D.OverlapBoxAll(transform.position, size, 0);
