@@ -119,6 +119,9 @@ MonoBehaviour:
   _speed: 5
   _smoothTime: 0.05
   _rotationSpeed: 12.5
+  dashSpeed: 15
+  dashDuration: 0.1
+  dashCooldown: 0.6
 --- !u!114 &6212079997266675907
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -224,6 +227,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: c2c9a447-190c-4a0a-b413-1fba96a7a47e
     m_ActionName: 'Player/SpecialAttack[/Keyboard/space]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4006109440821853756}
+        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
+        m_MethodName: OnDash
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: f117f31b-fe4a-47be-a67f-eab652402ebe
+    m_ActionName: 'Player/Dash[/Keyboard/leftShift]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
