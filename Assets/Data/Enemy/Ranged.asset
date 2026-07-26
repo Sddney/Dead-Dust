@@ -17,9 +17,9 @@ MonoBehaviour:
   maxHealth: 15
   moveSpeed: 2.5
   damage: 0
-  sprite: {fileID: -2413806693520163455, guid: 6c9563a38c600c443bb163b0bea0d0d3, type: 3}
+  sprite: {fileID: -3008009793667060238, guid: b5f6bb4b097c16f4693111fafa1c9502, type: 3}
   color: {r: 0.9433962, g: 0.9433962, b: 0.9433962, a: 1}
-  scale: 0.7
+  scale: 1.5
   attackRange: 5
   attackCooldown: 2.5
   projectilePrefab: {fileID: 4836246898066261932, guid: 740fe9e9768226b44b2531e46bd844eb, type: 3}

@@ -10,8 +10,7 @@ public class EnemyController : MonoBehaviour
     private EnemyMovement movement;
     private EnemyAttack attack;
 
-    SpriteRenderer spriteRenderer;
-    
+    private SpriteRenderer spriteRenderer;
 
     private void Awake()
     {
@@ -28,6 +27,5 @@ public class EnemyController : MonoBehaviour
         spriteRenderer.color = enemyData.color;
         transform.localScale = Vector3.one * enemyData.scale;
 
-        
     }
 }

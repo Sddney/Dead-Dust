@@ -20,7 +20,6 @@ public class VFXManager : MonoBehaviour
 
     public void EnemyDamagePlay(Transform enemyTransform)
     {
-        Debug.Log("ENEMY HIT");
         damageVFX.EnemyDamageVFX(enemyTransform);
     }
     

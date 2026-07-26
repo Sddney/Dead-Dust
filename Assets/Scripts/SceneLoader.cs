@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public enum SceneName
@@ -17,19 +16,16 @@ public class SceneLoader : MonoBehaviour
 
     public void LoadMenu()
     {
-        Time.timeScale = 1;
         SceneManager.LoadScene(SceneName.MainMenu.ToString());
     }
 
     public void LoadLevel()
     {
-        Time.timeScale = 1;
         SceneManager.LoadScene(SceneName.Level.ToString());
     }
 
     public void RestartScene()
     {
-        Time.timeScale = 1;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
@@ -29,10 +30,9 @@ public class EnemySpawner : MonoBehaviour
     {
         List<EnemyController> enemiesToSpawn = new List<EnemyController>();
 
- 
-        normalCount = Random.Range(5, 15); 
-        tankCount = Random.Range(1, 8);   
-        rangedCount = Random.Range(5, 15); 
+        normalCount = Random.Range(5, 15);
+        tankCount = Random.Range(1, 8);
+        rangedCount = Random.Range(5, 15);
 
         TotalEnemies = normalCount + tankCount + rangedCount;
 
@@ -63,6 +63,21 @@ public class EnemySpawner : MonoBehaviour
             Instantiate(enemy, spawnPoint.position, Quaternion.identity);
 
             yield return new WaitForSeconds(spawnDelay);
+        }
+    }
+
+    public void StopSpawning()
+    {
+        StopAllCoroutines();
+    }
+
+    public void StopAllEnemies()
+    {
+        List<EnemyMovement> enemyMovements = FindObjectsByType<EnemyMovement>().ToList();
+
+        foreach (EnemyMovement enemyMovement in enemyMovements)
+        {
+            enemyMovement.DisableMovement();
         }
     }
 }

@@ -1500,46 +1500,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6212079997266675907, guid: 1d23ed3fe73ca904ebb462480a2a705f, type: 3}
-      propertyPath: m_ActionEvents.Array.size
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 6212079997266675907, guid: 1d23ed3fe73ca904ebb462480a2a705f, type: 3}
-      propertyPath: m_ActionEvents.Array.data[5].m_ActionId
-      value: f117f31b-fe4a-47be-a67f-eab652402ebe
-      objectReference: {fileID: 0}
-    - target: {fileID: 6212079997266675907, guid: 1d23ed3fe73ca904ebb462480a2a705f, type: 3}
-      propertyPath: m_ActionEvents.Array.data[5].m_ActionName
-      value: 'Player/Dash[/Keyboard/leftShift]'
-      objectReference: {fileID: 0}
-    - target: {fileID: 6212079997266675907, guid: 1d23ed3fe73ca904ebb462480a2a705f, type: 3}
-      propertyPath: m_ActionEvents.Array.data[5].m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6212079997266675907, guid: 1d23ed3fe73ca904ebb462480a2a705f, type: 3}
-      propertyPath: m_ActionEvents.Array.data[5].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6212079997266675907, guid: 1d23ed3fe73ca904ebb462480a2a705f, type: 3}
-      propertyPath: m_ActionEvents.Array.data[5].m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 2091862723}
-    - target: {fileID: 6212079997266675907, guid: 1d23ed3fe73ca904ebb462480a2a705f, type: 3}
-      propertyPath: m_ActionEvents.Array.data[5].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6212079997266675907, guid: 1d23ed3fe73ca904ebb462480a2a705f, type: 3}
-      propertyPath: m_ActionEvents.Array.data[5].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnDash
-      objectReference: {fileID: 0}
-    - target: {fileID: 6212079997266675907, guid: 1d23ed3fe73ca904ebb462480a2a705f, type: 3}
-      propertyPath: m_ActionEvents.Array.data[5].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: PlayerMovement, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 6212079997266675907, guid: 1d23ed3fe73ca904ebb462480a2a705f, type: 3}
-      propertyPath: m_ActionEvents.Array.data[5].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5356,6 +5316,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: c2c9a447-190c-4a0a-b413-1fba96a7a47e
     m_ActionName: 'Player/SpecialAttack[/Keyboard/space]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: f117f31b-fe4a-47be-a67f-eab652402ebe
+    m_ActionName: 'Player/Dash[/Keyboard/leftShift]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -6108,8 +6072,13 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
+<<<<<<< HEAD
   m_AnchoredPosition: {x: 1.8115, y: -45.44}
   m_SizeDelta: {x: 116.377, y: 25}
+=======
+  m_AnchoredPosition: {x: 0, y: -26.6}
+  m_SizeDelta: {x: 136.9192, y: 25}
+>>>>>>> origin/main
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1076904382
 MonoBehaviour:
@@ -7694,7 +7663,7 @@ MonoBehaviour:
   _pickupItems:
   - {fileID: 3561185467995593320, guid: e594ee9e0c80eca4d8fab56dd44d63de, type: 3}
   _maxItems: 2
-  _spawnTime: 5
+  _spawnTime: 25
 --- !u!1 &1295894197
 GameObject:
   m_ObjectHideFlags: 0
@@ -10869,17 +10838,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3527735026962097179, guid: 1d23ed3fe73ca904ebb462480a2a705f, type: 3}
   m_PrefabInstance: {fileID: 314380157}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2091862723 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4006109440821853756, guid: 1d23ed3fe73ca904ebb462480a2a705f, type: 3}
-  m_PrefabInstance: {fileID: 314380157}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a6bdb2b2aab9174fa078e7c8cc3a080, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
 --- !u!1 &2115443505
 GameObject:
   m_ObjectHideFlags: 0

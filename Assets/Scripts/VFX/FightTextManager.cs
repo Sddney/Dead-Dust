@@ -53,7 +53,7 @@ public class FightTextManager : MonoBehaviour
         Spawn(worldPosition, killTexts[Random.Range(0, killTexts.Length)]);
     }
 
-   private void Spawn(Vector3 worldPosition, string text)
+    private void Spawn(Vector3 worldPosition, string text)
     {
         FloatingText popup = Instantiate(floatingTextPrefab, worldCanvas.transform);
 
