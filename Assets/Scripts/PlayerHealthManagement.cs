@@ -3,15 +3,15 @@ using UnityEngine;
 
 public class PlayerHealthManagement : MonoBehaviour
 {
-    [SerializeField] private int startingHealth = 100;
+    [SerializeField] private int _startingHealth = 100;
 
-    [SerializeField] AudioClip playerHurtSound;
-    [SerializeField] AudioClip playerHealSound;
+    [SerializeField] private AudioClip _playerHurtSound;
+    [SerializeField] private AudioClip _playerHealSound;
 
-    private AudioManager audioManager;
-    private UIManager UIManager;
+    private AudioManager _audioManager;
+    private UIManager _uiManager;
 
-    private bool hasShield = false;
+    private bool _hasShield = false;
 
     public int CurrentHealth { get; private set; }
 
@@ -19,20 +19,20 @@ public class PlayerHealthManagement : MonoBehaviour
 
     private void Awake()
     {
-        audioManager = FindAnyObjectByType<AudioManager>();
-        if (audioManager is null)
+        _audioManager = FindAnyObjectByType<AudioManager>();
+        if (_audioManager is null)
         {
             Debug.LogError("AudioManager not found in the scene. Please make sure there is an AudioManager in the scene.");
         }
 
 
-        UIManager = FindAnyObjectByType<UIManager>();
-        if (UIManager is null)
+        _uiManager = FindAnyObjectByType<UIManager>();
+        if (_uiManager is null)
         {
             Debug.LogError("UI Manager is missing.");
         }
 
-        CurrentHealth = startingHealth;
+        CurrentHealth = _startingHealth;
     }
 
     public void Heal(int amount)
@@ -52,10 +52,9 @@ public class PlayerHealthManagement : MonoBehaviour
             amount = 100 - CurrentHealth;
         }
 
-        UIManager.UpdateHealthBar(CurrentHealth, startingHealth);
-
-        audioManager.PlaySound(playerHealSound);
+        _audioManager.PlaySound(_playerHealSound);
         CurrentHealth += amount;
+        _uiManager.UpdateHealthBar(CurrentHealth, _startingHealth);
         Debug.Log($"Player HP: {CurrentHealth}");
     }
 
@@ -66,21 +65,21 @@ public class PlayerHealthManagement : MonoBehaviour
             throw new ArgumentOutOfRangeException(nameof(amount), "Damage amount cannot be negative.");
         }
 
-        if (hasShield)
+        if (_hasShield)
         {
             Debug.Log("Has shield");
             return;
         }
 
-        audioManager.PlaySound(playerHurtSound);
+        _audioManager.PlaySound(_playerHurtSound);
         CurrentHealth -= amount;
 
         Debug.Log($"Player HP: {CurrentHealth}");
-        UIManager.UpdateHealthBar(CurrentHealth, startingHealth);
+        _uiManager.UpdateHealthBar(CurrentHealth, _startingHealth);
 
         if (CurrentHealth <= 0)
         {
-            UIManager.ShowDeathUI();
+            _uiManager.ShowDeathUI();
             gameObject.SetActive(false);
             PlayerDied?.Invoke(this, EventArgs.Empty);
             Debug.Log("Player Died");
@@ -89,6 +88,6 @@ public class PlayerHealthManagement : MonoBehaviour
 
     public void ActivateShield(bool isActive)
     {
-        hasShield = isActive;
+        _hasShield = isActive;
     }
 }
