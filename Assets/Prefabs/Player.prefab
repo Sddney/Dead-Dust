@@ -271,9 +271,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db156fd59158a8848a1f2ba9da53478f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  startingHealth: 200
-  playerHurtSound: {fileID: 8300000, guid: e1273755bb981934ea947d6d2089ac31, type: 3}
-  playerHealSound: {fileID: 8300000, guid: ed194520199a4ce45b291ab8bcb91366, type: 3}
+  _startingHealth: 100
+  _playerHurtSound: {fileID: 8300000, guid: e1273755bb981934ea947d6d2089ac31, type: 3}
+  _playerHealSound: {fileID: 8300000, guid: ed194520199a4ce45b291ab8bcb91366, type: 3}
 --- !u!1 &1171576768075222350
 GameObject:
   m_ObjectHideFlags: 0
