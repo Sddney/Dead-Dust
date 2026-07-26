@@ -19,6 +19,8 @@ public class PlayerHealthManagement : MonoBehaviour
 
     public event EventHandler PlayerDied;
 
+    VFXManager VFXManager;
+
     private void Awake()
     {
         _audioManager = FindAnyObjectByType<AudioManager>();
@@ -35,6 +37,10 @@ public class PlayerHealthManagement : MonoBehaviour
         }
 
         CurrentHealth = _startingHealth;
+
+        VFXManager = FindAnyObjectByType<VFXManager>();
+        if(VFXManager is null) Debug.LogError("VFX Manager is missing.");
+        
     }
 
     public void Heal(int amount)
@@ -75,6 +81,7 @@ public class PlayerHealthManagement : MonoBehaviour
 
         _audioManager.PlaySound(_playerHurtSound);
         CurrentHealth -= amount;
+        VFXManager.PlayerDamagePlay();
 
         Debug.Log($"Player HP: {CurrentHealth}");
         _uiManager.UpdateHealthBar(CurrentHealth, _startingHealth);
