@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
@@ -12,9 +13,12 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private Transform[] spawnPoints;
     [SerializeField] private float spawnDelay;
 
-    [SerializeField] private int normalCount = 5;
-    [SerializeField] private int tankCount = 1;
-    [SerializeField] private int rangedCount = 2;
+    [Header("Count")]
+    public int normalCount;
+    public int tankCount;
+    public int rangedCount;
+
+    public int TotalEnemies { get; private set; }
 
     private void Start()
     {
@@ -23,21 +27,40 @@ public class EnemySpawner : MonoBehaviour
 
     private IEnumerator SpawnRoutine()
     {
-        while (true)
-        {
-            yield return SpawnEnemies(normalEnemy, normalCount);
-            yield return SpawnEnemies(tankEnemy, tankCount);
-            yield return SpawnEnemies(rangedEnemy, rangedCount);
-        }
-    }
+        List<EnemyController> enemiesToSpawn = new List<EnemyController>();
 
-    private IEnumerator SpawnEnemies(EnemyController enemyPrefab, int amount)
-    {
-        for (int i = 0; i < amount; i++)
+ 
+        normalCount = Random.Range(5, 15); 
+        tankCount = Random.Range(1, 8);   
+        rangedCount = Random.Range(5, 15); 
+
+        TotalEnemies = normalCount + tankCount + rangedCount;
+
+        for (int i = 0; i < normalCount; i++)
+            enemiesToSpawn.Add(normalEnemy);
+
+        for (int i = 0; i < tankCount; i++)
+            enemiesToSpawn.Add(tankEnemy);
+
+        for (int i = 0; i < rangedCount; i++)
+            enemiesToSpawn.Add(rangedEnemy);
+
+
+        for (int i = enemiesToSpawn.Count - 1; i > 0; i--)
+        {
+            int randomIndex = Random.Range(0, i + 1);
+
+            EnemyController temp = enemiesToSpawn[i];
+            enemiesToSpawn[i] = enemiesToSpawn[randomIndex];
+            enemiesToSpawn[randomIndex] = temp;
+        }
+
+
+        foreach (EnemyController enemy in enemiesToSpawn)
         {
             Transform spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
 
-            Instantiate(enemyPrefab, spawnPoint.position, Quaternion.identity);
+            Instantiate(enemy, spawnPoint.position, Quaternion.identity);
 
             yield return new WaitForSeconds(spawnDelay);
         }

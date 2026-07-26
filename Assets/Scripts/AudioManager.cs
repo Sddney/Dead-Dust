@@ -3,6 +3,7 @@
 public class AudioManager : MonoBehaviour
 {
     [SerializeField] private AudioSource _audioSource;
+    [SerializeField] AudioSource battleOstAudio;
 
     private void Start()
     {
@@ -17,5 +18,12 @@ public class AudioManager : MonoBehaviour
     public void PlaySound(AudioClip clip)
     {
         _audioSource.PlayOneShot(clip);
+    }
+
+    public void LowerVolume(float value)
+    {
+        
+        battleOstAudio.volume = value;
+
     }
 }
