@@ -17,6 +17,11 @@ public class EnemyVision : MonoBehaviour
 
     private void Update()
     {
+        if (player is null)
+        {
+            return;
+        }
+
         CanSeePlayer = CheckVision();
     }
 

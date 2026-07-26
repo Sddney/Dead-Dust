@@ -2,11 +2,9 @@ using UnityEngine;
 
 public class ShootDamage : MonoBehaviour
 {
-
     [SerializeField] private int damage;
     
-
-    void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
@@ -14,5 +12,4 @@ public class ShootDamage : MonoBehaviour
             playerHealth.Damage(8);
         }
     }
-    
 }

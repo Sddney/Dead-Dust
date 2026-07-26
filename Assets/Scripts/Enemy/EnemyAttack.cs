@@ -8,8 +8,8 @@ public class EnemyAttack : MonoBehaviour
     private EnemyVision vision;
 
     private float attackTimer;
-    AudioManager AudioManager;
-    PointsManager PointsManager;
+    private AudioManager AudioManager;
+    private PointsManager PointsManager;
 
     public void Initialize(EnemyData enemyData)
     {
@@ -19,12 +19,15 @@ public class EnemyAttack : MonoBehaviour
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
-        AudioManager ??= FindAnyObjectByType<AudioManager>();
-        if (AudioManager is null) Debug.LogError("AudioManager not found in the scene. Please make sure there is an AudioManager in the scene.");
-        
-        PointsManager ??= FindAnyObjectByType<PointsManager>();
-        if(PointsManager is null) Debug.LogError("PointsManager not found in the scene. Please make sure there is a PointsManager in the scene.");
+        AudioManager = FindAnyObjectByType<AudioManager>();
+        vision = GetComponent<EnemyVision>();
 
+        if (AudioManager is null)
+            Debug.LogError("AudioManager not found in the scene. Please make sure there is an AudioManager in the scene.");
+
+        PointsManager = FindAnyObjectByType<PointsManager>();
+        if (PointsManager is null)
+            Debug.LogError("PointsManager not found in the scene. Please make sure there is a PointsManager in the scene.");
     }
 
     private void FixedUpdate()
@@ -43,12 +46,14 @@ public class EnemyAttack : MonoBehaviour
 
     private void HandleRangedAttack()
     {
-        vision = GetComponent<EnemyVision>();
+        if (vision.Player is null)
+        {
+            return;
+        }
 
         float distance = Vector2.Distance(transform.position, vision.Player.position);
 
         bool canAttack = distance <= data.attackRange && vision.CanSeePlayer;
-        //Debug.Log($"Can Attack: {canAttack}");
 
         agent.isStopped = canAttack;
 
@@ -62,9 +67,9 @@ public class EnemyAttack : MonoBehaviour
     private void Shoot()
     {
         AudioManager.PlaySound(data.soundShot);
-        GameObject projectile = Instantiate(data.projectilePrefab,transform.position,Quaternion.identity);
+        GameObject projectile = Instantiate(data.projectilePrefab, transform.position, Quaternion.identity);
 
-        Vector2 direction =(vision.Player.position - transform.position).normalized;
+        Vector2 direction = (vision.Player.position - transform.position).normalized;
 
         Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
 
