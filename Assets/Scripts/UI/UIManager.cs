@@ -4,14 +4,11 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
+    [SerializeField] private GameObject _mainUI;
     [SerializeField] private ShieldUI _shieldUI;
     [SerializeField] private DeathUI _deathUI;
-    [SerializeField] private RectTransform _selection;
-    [SerializeField] private RectTransform[] _weaponIcons;
+    [SerializeField] private GameObject[] _weaponsSelections;
 
-
-    [SerializeField] private RectTransform selection;
-    [SerializeField] private RectTransform[] weaponIcons;
     [SerializeField] private PointsManager pointsManager;
     [SerializeField] private TextMeshProUGUI pointsText;
 
@@ -19,8 +16,12 @@ public class UIManager : MonoBehaviour
 
     public void SelectWeapon(int weaponIndex)
     {
-        _selection.anchoredPosition = _weaponIcons[weaponIndex].anchoredPosition;
+        foreach (var item in _weaponsSelections)
+        {
+            item.SetActive(false);
+        }
 
+        _weaponsSelections[weaponIndex].SetActive(true);
     }
 
     public void UpdateHealthBar(float currentHealth, float maxHealth)
@@ -45,6 +46,7 @@ public class UIManager : MonoBehaviour
 
     public void ShowDeathUI()
     {
+        _mainUI.SetActive(false);
         _deathUI.gameObject.SetActive(true);
     }
 }
